@@ -156,14 +156,14 @@ h1, h2, h3 {
   place-items: center;
 }
 
-/* —— Hero (full-bleed photo + centered copy) —— */
+/* —— Hero (full-bleed photo; faces right, copy left) —— */
 .hero {
   position: relative;
   min-height: clamp(560px, 78vh, 720px);
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: flex-start;
+  text-align: left;
   color: #fff;
   overflow: hidden;
 }
@@ -177,28 +177,35 @@ h1, h2, h3 {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center right;
+  /* Pin Katie & Allan to the right so copy does not cover them */
+  object-position: right center;
 }
 .hero-veil {
   position: absolute;
   inset: 0;
   z-index: 1;
-  /* Keep faces visible; darker only near bottom for text */
+  /* Darker on the left for text; lighter on the right for faces */
   background:
     linear-gradient(
+      90deg,
+      rgba(36, 0, 63, 0.92) 0%,
+      rgba(36, 0, 63, 0.82) 38%,
+      rgba(36, 0, 63, 0.45) 62%,
+      rgba(36, 0, 63, 0.28) 100%
+    ),
+    linear-gradient(
       180deg,
-      rgba(36, 0, 63, 0.45) 0%,
-      rgba(36, 0, 63, 0.55) 38%,
-      rgba(36, 0, 63, 0.78) 72%,
-      rgba(36, 0, 63, 0.92) 100%
+      rgba(36, 0, 63, 0.15) 0%,
+      rgba(36, 0, 63, 0.35) 70%,
+      rgba(36, 0, 63, 0.55) 100%
     );
 }
 .hero-content {
   position: relative;
   z-index: 2;
-  width: min(820px, calc(100% - 40px));
+  width: min(560px, calc(100% - 48px));
   padding: 56px 0 52px;
-  margin: 0 auto;
+  margin: 0 0 0 max(24px, calc((100% - var(--max)) / 2));
 }
 .hero h1 {
   color: #fff;
@@ -213,7 +220,7 @@ h1, h2, h3 {
   color: rgba(255,255,255,0.9);
   font-size: 1.06rem;
   max-width: 34rem;
-  margin: 0 auto 24px;
+  margin: 0 0 24px;
   font-weight: 500;
   line-height: 1.7;
 }
@@ -221,7 +228,7 @@ h1, h2, h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  justify-content: center;
+  justify-content: flex-start;
   margin-bottom: 32px;
 }
 .btn-gold {
@@ -280,8 +287,8 @@ h1, h2, h3 {
   gap: 0;
   background: rgba(255,255,255,0.12);
   border: 1px solid rgba(255,255,255,0.2);
-  max-width: 640px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
 }
 .hero-stats > div {
   background: rgba(20, 8, 40, 0.45);
@@ -1088,8 +1095,31 @@ h1, h2, h3 {
   .brand img { height: 40px; }
   .hero {
     min-height: auto;
+    justify-content: center;
+    text-align: center;
   }
-  .hero-content { padding: 40px 0 36px; }
+  .hero-content {
+    width: min(920px, calc(100% - 28px));
+    margin: 0 auto;
+    padding: 40px 0 36px;
+    text-align: center;
+  }
+  .hero-media img {
+    object-position: 70% center;
+  }
+  .hero-veil {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(36, 0, 63, 0.55) 0%,
+        rgba(36, 0, 63, 0.78) 50%,
+        rgba(36, 0, 63, 0.92) 100%
+      );
+  }
+  .hero-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
   .hero-stats {
     grid-template-columns: 1fr;
   }
@@ -1101,6 +1131,7 @@ h1, h2, h3 {
   .hero-cta {
     flex-direction: column;
     align-items: stretch;
+    justify-content: center;
   }
   .btn-gold,
   .btn-outline,
