@@ -1,4 +1,4 @@
-/* Geaux Tax Resolution — distinct identity (not Patriot template) */
+/* Geaux Title LLC — Northshore title company (purple / gold brand) */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap');
 
 /* Official logo colors */
@@ -487,7 +487,7 @@ h1, h2, h3 {
 }
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 .service-grid li {
@@ -518,7 +518,7 @@ h1, h2, h3 {
   max-width: 26rem;
 }
 
-/* Team — 3 equal columns, centered head */
+/* Team — equal columns, centered head */
 .team {
   padding: 80px 0;
   background: #F3EEF8;
@@ -528,6 +528,11 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+.team-strip-2 {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 880px;
+  margin: 0 auto;
 }
 .person {
   background: var(--white);
@@ -552,6 +557,28 @@ h1, h2, h3 {
   display: block;
   image-rendering: auto;
 }
+.person-avatar {
+  aspect-ratio: 16 / 10;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(252, 204, 36, 0.35), transparent 45%),
+    linear-gradient(145deg, var(--purple) 0%, var(--purple-deep) 100%);
+}
+.person-avatar span {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.12);
+  border: 2px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
 .person-body {
   padding: 18px 16px 22px;
   flex: 1;
@@ -575,6 +602,51 @@ h1, h2, h3 {
   color: var(--mute);
   font-size: 0.92rem;
   font-weight: 500;
+}
+
+/* Reviews */
+.reviews {
+  padding: 80px 0;
+  background: var(--white);
+  border-top: 1px solid var(--line);
+}
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.review-card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--gold);
+  padding: 24px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  height: 100%;
+  margin: 0;
+}
+.review-card > p {
+  color: var(--ink);
+  font-family: 'Newsreader', Georgia, serif;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  font-weight: 500;
+  flex: 1;
+}
+.review-card footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.review-card strong {
+  color: var(--purple-ink);
+  font-size: 0.95rem;
+}
+.review-card span {
+  color: var(--mute);
+  font-size: 0.82rem;
+  font-weight: 600;
 }
 
 /* Different — centered stack */
@@ -628,6 +700,10 @@ h1, h2, h3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 16px;
+}
+.office-grid-2 {
+  /* keep three contact cards equal */
+  grid-template-columns: repeat(3, 1fr);
 }
 .office-card {
   display: flex;
@@ -715,10 +791,11 @@ h1, h2, h3 {
   text-align: center;
 }
 .closeout-logo {
-  height: 36px;
+  height: 40px;
   width: auto;
   margin: 0 auto 20px;
-  filter: brightness(1.05);
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
 }
 .closeout h2 {
   color: #fff;
@@ -765,7 +842,7 @@ h1, h2, h3 {
   padding: 14px;
 }
 
-/* —— Animations (Geaux-specific, calm) —— */
+/* —— Animations (Geaux Title, calm) —— */
 .scroll-progress {
   position: fixed;
   top: 0;
@@ -834,9 +911,14 @@ h1, h2, h3 {
 .anim.is-in .service-grid .anim-child:nth-child(2) { transition-delay: 0.18s; }
 .anim.is-in .service-grid .anim-child:nth-child(3) { transition-delay: 0.26s; }
 .anim.is-in .service-grid .anim-child:nth-child(4) { transition-delay: 0.34s; }
+.anim.is-in .service-grid .anim-child:nth-child(5) { transition-delay: 0.42s; }
+.anim.is-in .service-grid .anim-child:nth-child(6) { transition-delay: 0.5s; }
 .anim.is-in .team-strip .anim-child:nth-child(1) { transition-delay: 0.1s; }
 .anim.is-in .team-strip .anim-child:nth-child(2) { transition-delay: 0.2s; }
 .anim.is-in .team-strip .anim-child:nth-child(3) { transition-delay: 0.3s; }
+.anim.is-in .review-grid .anim-child:nth-child(1) { transition-delay: 0.1s; }
+.anim.is-in .review-grid .anim-child:nth-child(2) { transition-delay: 0.2s; }
+.anim.is-in .review-grid .anim-child:nth-child(3) { transition-delay: 0.3s; }
 .anim.is-in .office-grid .anim-child:nth-child(1) { transition-delay: 0.08s; }
 .anim.is-in .office-grid .anim-child:nth-child(2) { transition-delay: 0.16s; }
 .anim.is-in .office-grid .anim-child:nth-child(3) { transition-delay: 0.24s; }
@@ -936,8 +1018,10 @@ h1, h2, h3 {
     justify-content: center;
   }
   .team-strip,
+  .team-strip-2,
   .office-grid,
-  .diff-points {
+  .diff-points,
+  .review-grid {
     grid-template-columns: 1fr;
   }
   .step-grid,
@@ -986,6 +1070,7 @@ h1, h2, h3 {
   .services,
   .team,
   .different,
+  .reviews,
   .offices,
   .faq,
   .closeout { padding: 52px 0; }
