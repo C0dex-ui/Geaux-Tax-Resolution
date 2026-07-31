@@ -177,7 +177,7 @@ h1, h2, h3 {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center 40%;
 }
 .hero-veil {
   position: absolute;
