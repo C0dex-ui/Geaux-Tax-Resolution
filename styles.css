@@ -1,13 +1,13 @@
 /* Geaux Title LLC — Northshore title company (purple / gold brand) */
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap');
 
-/* Official logo colors */
+/* Official Geaux Title logo colors */
 :root {
-  --purple: #441C7C;
-  --purple-deep: #2E1258;
-  --purple-ink: #1F0C3D;
-  --gold: #FCCC24;
-  --gold-hover: #E8B810;
+  --purple: #4E008E;
+  --purple-deep: #3A0069;
+  --purple-ink: #24003F;
+  --gold: #CCA147;
+  --gold-hover: #B88E38;
   --paper: #FAF8F4;
   --white: #FFFFFF;
   --ink: #1A1520;
@@ -116,9 +116,9 @@ h1, h2, h3 {
   align-items: center;
 }
 .brand img {
-  height: 46px;
+  height: 52px;
   width: auto;
-  max-width: min(220px, 52vw);
+  max-width: min(200px, 56vw);
   object-fit: contain;
 }
 .nav {
@@ -791,9 +791,11 @@ h1, h2, h3 {
   text-align: center;
 }
 .closeout-logo {
-  height: 40px;
+  height: 56px;
   width: auto;
+  max-width: min(220px, 70vw);
   margin: 0 auto 20px;
+  /* real multi-color logo reads on dark better as light monochrome */
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
