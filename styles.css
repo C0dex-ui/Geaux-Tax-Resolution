@@ -542,20 +542,35 @@ h1, h2, h3 {
   flex-direction: column;
   height: 100%;
   text-align: center;
+  box-shadow: 0 8px 24px rgba(36, 0, 63, 0.06);
 }
 .person-photo {
   aspect-ratio: 4 / 5;
-  background: #f7f5fa;
+  background: #1a0a2e;
   overflow: hidden;
+  position: relative;
+}
+.person-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 -40px 48px rgba(36, 0, 63, 0.12);
 }
 .person-photo img {
   width: 100%;
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 18%;
   display: block;
   image-rendering: auto;
+}
+.person-photo img.photo-katie {
+  object-position: center 12%;
+}
+.person-photo img.photo-allan {
+  object-position: center 22%;
 }
 .person-avatar {
   aspect-ratio: 16 / 10;
