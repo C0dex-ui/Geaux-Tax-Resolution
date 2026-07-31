@@ -584,15 +584,17 @@ h1, h2, h3 {
   height: 100%;
   max-width: none;
   object-fit: cover;
-  object-position: center 18%;
+  object-position: center 12%;
   display: block;
   image-rendering: auto;
 }
 .person-photo img.photo-katie {
-  object-position: center 12%;
+  object-position: center 10%;
 }
 .person-photo img.photo-allan {
-  object-position: center 22%;
+  /* Source is already a close headshot — don't zoom further */
+  object-position: center 20%;
+  object-fit: cover;
 }
 .person-avatar {
   aspect-ratio: 16 / 10;
