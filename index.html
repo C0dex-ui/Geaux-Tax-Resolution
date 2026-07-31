@@ -12,7 +12,7 @@
   <meta property="og:description" content="Accurate and speedy real estate closings in a professional environment. Voted Best Title Company in West St. Tammany. Call (985) 624-8655.">
   <meta property="og:url" content="https://geauxtitle.com/">
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
-  <link rel="stylesheet" href="styles.css?v=68">
+  <link rel="stylesheet" href="styles.css?v=69">
   <link rel="icon" type="image/png" href="./logo.png">
   <script type="application/ld+json">
   {
@@ -109,7 +109,18 @@
   <main id="main">
     <section class="hero is-hero" id="home">
       <div class="hero-media" aria-hidden="true">
-        <img src="./assets/katie-allan-together.jpg?v=2" alt="" width="1408" height="736" fetchpriority="high">
+        <video
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster="./assets/katie-allan-together.jpg?v=2"
+        >
+          <source src="./assets/hero-bg.mp4" type="video/mp4">
+        </video>
+        <img class="hero-fallback" src="./assets/katie-allan-together.jpg?v=2" alt="" width="1408" height="736" fetchpriority="high">
       </div>
       <div class="hero-veil" aria-hidden="true"></div>
       <div class="hero-content">
@@ -426,6 +437,21 @@
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var bar = document.getElementById('scroll-progress');
       var hero = document.querySelector('.is-hero');
+      var media = document.querySelector('.hero-media');
+      var video = document.querySelector('.hero-video');
+      if (video && media && !reduce) {
+        var markReady = function () { media.classList.add('is-video-ready'); };
+        video.addEventListener('playing', markReady, { once: true });
+        var playPromise = video.play();
+        if (playPromise && typeof playPromise.then === 'function') {
+          playPromise.then(markReady).catch(function () {
+            /* autoplay blocked — keep poster/fallback image */
+          });
+        }
+      } else if (video) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      }
       if (hero) {
         if (reduce) hero.classList.add('is-ready');
         else requestAnimationFrame(function () {
